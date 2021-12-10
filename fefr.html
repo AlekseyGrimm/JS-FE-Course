@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+const stray = numbers => numbers.sort((a, b) => a - b)
+  .filter(n => n === numbers[0]).length === 1 ? numbers[0] : numbers[numbers.length-1]
+
+console.log(stray([17, 17, 20, 17, 17, 17, 17]))
+</script>
+</html>

@@ -22,10 +22,21 @@
 // 3)Array: Write a function that accepts an array of 10 integers (between 0 and 9), 
 // that returns a string of those numbers in the form of a phone number.
 
+// function createPhoneNumber(n){
+//     const a = n.slice(0, 3).join('')
+//     const b = n.slice(3, 6).join('')
+//     const c = n.slice(6).join('')
+
+//     return `(${a}) ${b}-${c}`;
+//   }
+
+//   console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
+
 
 // ======================//////*******Tasks 4*******//////=====================================
 // 4)Array: Your task is to create a function deepCount that returns the number of ALL elements within an array, 
 // including any within inner-level arrays.
+
 
 
 // ======================//////*******Tasks 5*******//////=====================================

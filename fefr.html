@@ -10,9 +10,17 @@
     
 </body>
 <script>
-const stray = numbers => numbers.sort((a, b) => a - b)
-  .filter(n => n === numbers[0]).length === 1 ? numbers[0] : numbers[numbers.length-1]
 
-console.log(stray([17, 17, 20, 17, 17, 17, 17]))
+function createPhoneNumber(arr){
+  const a = arr.slice(0, 3).join('')
+  const b = arr.slice(3, 6).join('')
+  const c = arr.slice(6).join('')
+
+  return `(${a}) ${b}-${c}`;
+}
+
+console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
+
+
 </script>
 </html>

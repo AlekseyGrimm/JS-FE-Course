@@ -60,8 +60,35 @@
 // An "Avengers" ticket costs 25 dollars. Vasya is currently working as a clerk. 
 // He wants to sell a ticket to every single person in this line. 
 // Can Vasya sell a ticket to every person and give change if he initially has no money and sells the tickets strictly in the order people queue?
+// tickets([25, 25, 50]) // => YES
+// tickets([25, 100]) // => NO
+// tickets([25, 25, 50, 50, 100]) // => NO
 
-
+// function tickets(dollars) {
+//     let bill25 = 0
+//     let bill50 = 0
+//     for (let i = 0; i < dollars.length; i++) {
+//         if (dollars[i] == 25) {
+//             bill25 += 1
+//         }
+//         if (dollars[i] == 50) {
+//             bill25 -= 1
+//             bill50 += 1
+//         }
+//         if (dollars[i] == 100) {
+//             if (bill50 == 0 && bill25 >= 3) {
+//                 bill25 -= 3
+//             } else {
+//                 bill25 -= 1
+//                 bill50 -= 1
+//             }
+//         }
+//         if (bill25 < 0 || bill50 < 0) {
+//             return 'NO'
+//         }
+//     }
+//     return 'YES'
+// }
 
 // ======================//////*******Tasks 6*******//////=====================================
 //6) Write an if condition to check that age is NOT between 14 and 90 inclusively.
@@ -92,8 +119,8 @@
 // }
 
 // ======================//////*******Tasks 8*******//////=====================================
-// 8)Write a loop which prompts for a number greater than 100. 
-// If the visitor enters another number – ask them to input again. 
+// 8)Write a loop which prompts for a number greater than 100.
+// If the visitor enters another number – ask them to input again.
 // The loop must ask for a number until either the visitor enters a number greater than 100 or cancels the input/enters an empty line.
 
 // let num
@@ -105,5 +132,28 @@
 // ======================//////*******Tasks 9*******//////=====================================
 // 9)Write a function min(a,b) which returns the least of two numbers a and b:
 
+// function min(a, b) {
+//     return a < b ? a : b;
+//   }
+
+//   console.log(min(2, 5))
+// // ====>2
+// console.log(min(3, -1))
+// // ==> -1
+// console.log(min(1, 1))
+// // ==> 1
+
 // ======================//////*******Tasks 10*******//////=====================================
 // 10)Rewrite the function using '?' and '||'.
+// function checkAge(age) {
+//     if (age > 18) {
+//         return true;
+//     } else {
+//         return confirm('Did parents allow you?');
+//     }
+// }
+
+// ANSW:
+// function checkAge(age) {
+//     return age > 18 ? true : confirm('Did parents allow you?')
+// }

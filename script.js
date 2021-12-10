@@ -80,6 +80,16 @@
 
 // ======================//////*******Tasks 7*******//////=====================================
 // 7)Rewrite the code changing the for loop to while without altering its behavior (the output should stay same).
+// (for (let i = 0; i < 3; i++) {
+//     alert( `number ${i}!` );
+//   })
+// Answ:
+
+// let i = 0;
+// while (i < 3) {
+//   alert( `number ${i}!` );
+//   i++;
+// }
 
 // ======================//////*******Tasks 8*******//////=====================================
 // 8)Write a loop which prompts for a number greater than 100. 

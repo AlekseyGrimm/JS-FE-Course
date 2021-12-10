@@ -28,16 +28,31 @@
 //     const c = n.slice(6).join('')
 
 //     return `(${a}) ${b}-${c}`;
-//   }
+// }
 
-//   console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
+// console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
 
 
 // ======================//////*******Tasks 4*******//////=====================================
 // 4)Array: Your task is to create a function deepCount that returns the number of ALL elements within an array, 
 // including any within inner-level arrays.
 
+// function deepCount(arrCount){
+//     let count = arrCount.length;
+//         for (let i= 0; i < arrCount.length; i++) {
+//             if (Array.isArray(arrCount[i]) ) {
+//                 count += deepCount(arrCount[i])
+//             }
+//         }
+//     return count;
 
+// }
+// console.log(deepCount([1, 2, 3]))
+// //>>>>> 3
+// console.log(deepCount(["x", "y", ["z"]]))
+// //>>>>> 4
+// console.log(deepCount([1, 2, [3, 4, [5]]]))
+// //>>>>> 7
 
 // ======================//////*******Tasks 5*******//////=====================================
 // 5)Array: The new "Avengers" movie has just been released! There are a lot of people at the cinema box office standing in a huge line. 

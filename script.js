@@ -61,9 +61,22 @@
 // He wants to sell a ticket to every single person in this line. 
 // Can Vasya sell a ticket to every person and give change if he initially has no money and sells the tickets strictly in the order people queue?
 
+
+
 // ======================//////*******Tasks 6*******//////=====================================
 //6) Write an if condition to check that age is NOT between 14 and 90 inclusively.
-
+// function ages(age){
+//     if (!(age >= 14 && age <= 90)){
+//         return ("true")
+//     } else {
+//         return ("false")
+//     }
+// }
+// console.log(ages(13))
+// console.log(ages(14))
+// console.log(ages(16))
+// console.log(ages(90))
+// console.log(ages(91))
 
 // ======================//////*******Tasks 7*******//////=====================================
 // 7)Rewrite the code changing the for loop to while without altering its behavior (the output should stay same).

@@ -157,3 +157,28 @@
 // function checkAge(age) {
 //     return age > 18 ? true : confirm('Did parents allow you?')
 // }
+
+// ======================//////*******Tasks 11*******//////=====================================
+// Create a function runningAverage() that returns a callable function object:
+// // Example how it should work:
+// runningAverage(10); //Outputs 10.0
+// runningAverage(11); //Outputs 10.5
+// runningAverage(12); //Outputs 11
+
+// ANSW:
+// function running_Average() {
+//     let all = 0
+//     let num = 0
+
+//     return function (x) {
+//         all += x
+//         num += 1
+//         return all / num;
+//     }
+// }
+
+// let runningAverage = running_Average()
+
+// console.log(runningAverage(10)); //Outputs 10.0
+// console.log(runningAverage(11)); //Outputs 10.5
+// console.log(runningAverage(12)); //Outputs 11

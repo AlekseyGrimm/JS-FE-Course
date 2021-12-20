@@ -199,28 +199,86 @@
 // sum(1)(2)(3)(4); // Outputs 10
 
 // // ANSW:
-function sum(...args) {
-    if (arguments.length > 1) {
-        let total = 0
-        for (let num of arguments) {
-            total += num
-        }
-        console.log(total)
-    } else {
-        let total = arguments[0]
-        function sum2(b) {
-            total += b
-            setTimeout(() => {
-                console.log(total)
-            }, 0);            
-            return sum2
-        }
-        return sum2        
-    }
-}
+// function sum(...args) {
+//     if (arguments.length > 1) {
+//         let total = 0
+//         for (let num of arguments) {
+//             total += num
+//         }
+//         console.log(total)
+//     } else {
+//         let total = arguments[0]
+//         function sum2(b) {
+//             total += b
+//             setTimeout(() => {
+//                 console.log(total)
+//             }, 0);            
+//             return sum2
+//         }
+//         return sum2        
+//     }
+// }
 
 
 
-sum(2, 3); // Outputs 5
-sum(2)(3); // Outputs 5
-sum(1)(2)(3)(4); // Outputs 10
+// sum(2, 3); // Outputs 5
+// sum(2)(3); // Outputs 5
+// sum(1)(2)(3)(4); // Outputs 10
+
+// ======================//////*******Tasks 3*******//////=====================================
+// Create a function NamedOne() which takes first & last names as parameters and returns an object with firstName, 
+// lastName and fullName. If .firstName or .lastName are changed, then .fullName should also be changed. If .fullName is changed, 
+// then .firstName and .lastName should also be changed. 
+// Note: "input format" to .fullName will be firstName + space + lastName. 
+// If given fullName isn't valid then no property is changed.
+//Examples:
+// var	namedOne = new NamedOne("Naomi","Wang");
+// namedOne.firstName = "John"
+// namedOne.lastName = "Doe"
+// //...then...
+// namedOne.fullName // -> "John Doe"
+// // -- And:
+// namedOne.fullName = "Bill Smith"
+// //...then...
+// namedOne.firstName // -> "Bill"
+// namedOne.lastName // -> "Smith"
+// // -- But:
+// namedOne.fullName = "Tom" // -> no: lastName missing
+// namedOne.fullName = "TomDonnovan" // -> no: no space between first & last names
+// namedOne.fullName // -> "Bill Smith" (unchanged)
+
+// ANSW:
+
+// function NamedOne(first, last) {
+//     this.firstName = first;
+//     this.lastName = last;
+//     Object.defineProperty(this, "fullName", {
+//         get: function () {
+//             return this.firstName + ' ' + this.lastName;
+//         },
+
+//         set: function (value) {
+//             let arr = value.split(" ");
+//             if (arr.length === 2) {
+//                 this.firstName = arr[0];
+//                 this.lastName = arr[1];
+//             } 
+//         }
+//     });
+// }
+
+// let namedOne = new NamedOne('Naomi', 'Wang')
+// namedOne.firstName = "John"
+// namedOne.lastName = "Doe"
+// console.log(namedOne.fullName) // -> "John Doe"
+// // -- And:
+// namedOne.fullName = "Bill Smith"
+// //...then...
+// console.log(namedOne.firstName) // -> "Bill"
+// console.log(namedOne.lastName) // -> "Smith"
+// console.log(namedOne.fullName)
+// // -- But:
+// namedOne.fullName = "Tom" // -> no: lastName missing
+// console.log(namedOne.fullName, ": Tom")
+// namedOne.fullName = "TomDonnovan" // -> no: no space between first & last names
+// console.log(namedOne.fullName, ": TomDonnovan") // -> "Bill Smith" (unchanged)

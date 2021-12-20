@@ -1,3 +1,5 @@
+/////////////////////////!!!!!!!!!!!!!!!!!!!!Topic 1!!!!!!!!!!!!!!!!!////////////////////////////////
+
 // /* ======================//////*******Tasks 1*******//////=====================================
 // 1) Variables: Declare admin and name variables. Assign the value "John" to name. 
 // Copy the value from name to admin. Show the value of admin using alert (must output “John”). */
@@ -155,10 +157,16 @@
 
 // ANSW:
 // function checkAge(age) {
-//     return age > 18 ? true : confirm('Did parents allow you?')
+//     return (age > 18) ? true : confirm('Did parents allow you?')
 // }
 
-// ======================//////*******Tasks 11*******//////=====================================
+// function checkAge(age) {
+//     return (age>18) || confirm('Did parents allow you?');
+// }
+
+/////////////////////////!!!!!!!!!!!!!!!!!!!!Topic 2!!!!!!!!!!!!!!!!!////////////////////////////////
+
+// ======================//////*******Tasks 1*******//////=====================================
 // Create a function runningAverage() that returns a callable function object:
 // // Example how it should work:
 // runningAverage(10); //Outputs 10.0
@@ -182,3 +190,37 @@
 // console.log(runningAverage(10)); //Outputs 10.0
 // console.log(runningAverage(11)); //Outputs 10.5
 // console.log(runningAverage(12)); //Outputs 11
+
+
+// ======================//////*******Tasks 2*******//////=====================================
+// Write a sum() function which will work properly when invoked using syntax below:
+// sum(2,3); // Outputs 5
+// sum(2)(3); // Outputs 5
+// sum(1)(2)(3)(4); // Outputs 10
+
+// // ANSW:
+function sum(...args) {
+    if (arguments.length > 1) {
+        let total = 0
+        for (let num of arguments) {
+            total += num
+        }
+        console.log(total)
+    } else {
+        let total = arguments[0]
+        function sum2(b) {
+            total += b
+            setTimeout(() => {
+                console.log(total)
+            }, 0);            
+            return sum2
+        }
+        return sum2        
+    }
+}
+
+
+
+sum(2, 3); // Outputs 5
+sum(2)(3); // Outputs 5
+sum(1)(2)(3)(4); // Outputs 10

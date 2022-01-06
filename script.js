@@ -1,4 +1,6 @@
-/////////////////////////!!!!!!!!!!!!!!!!!!!!Topic 1!!!!!!!!!!!!!!!!!////////////////////////////////
+//*********************************************************************************************
+// ======================              Topic 1            =====================================
+//*********************************************************************************************
 
 // /* ======================//////*******Tasks 1*******//////=====================================
 // 1) Variables: Declare admin and name variables. Assign the value "John" to name. 
@@ -164,7 +166,9 @@
 //     return (age>18) || confirm('Did parents allow you?');
 // }
 
-/////////////////////////!!!!!!!!!!!!!!!!!!!!Topic 2!!!!!!!!!!!!!!!!!////////////////////////////////
+//*********************************************************************************************
+// ======================              Topic 2            =====================================
+//*********************************************************************************************
 
 // ======================//////*******Tasks 1*******//////=====================================
 // Create a function runningAverage() that returns a callable function object:
@@ -225,7 +229,7 @@
 // sum(2)(3); // Outputs 5
 // sum(1)(2)(3)(4); // Outputs 10
 
-// ======================//////*******Tasks 3*******//////=====================================
+// ======================//////*******Task 3*******//////=====================================
 // Create a function NamedOne() which takes first & last names as parameters and returns an object with firstName, 
 // lastName and fullName. If .firstName or .lastName are changed, then .fullName should also be changed. If .fullName is changed, 
 // then .firstName and .lastName should also be changed. 
@@ -282,3 +286,103 @@
 // console.log(namedOne.fullName, ": Tom")
 // namedOne.fullName = "TomDonnovan" // -> no: no space between first & last names
 // console.log(namedOne.fullName, ": TomDonnovan") // -> "Bill Smith" (unchanged)
+
+//*********************************************************************************************
+// ======================              Topic 3            =====================================
+//*********************************************************************************************
+
+
+// ======================//////*******Tasks 1*******//////=====================================
+// Create a Vector object that supports addition, subtraction, dot products, and norms. 
+// So, for example. If you try to add, subtract, or dot two vectors with different lengths, 
+// you must throw an error. Also provide: a toString method, so that using the vectors from above, 
+// a.toString() === '(1,2,3)' an equals method, 
+// to check that two vectors that have the same components are equal.
+
+//ANSW:
+
+// class Vector {
+//     constructor(arr) {
+//         this.value = arr;
+//     }
+
+//     add(arrTwo) {
+//         if (this.value.length !== arrTwo.value.length) {
+//             console.log("error")
+//         }
+
+//         return new Vector(this.value.map((val, index) => val + arrTwo.value[index]));
+//     }
+
+//     subtract(arrTwo) {
+//         if (this.value.length !== arrTwo.value.length) {
+//             console.log("error")
+//         }
+
+//         return new Vector(this.value.map((val, index) => val - arrTwo.value[index]));
+//     }
+
+//     dot(arrTwo) {
+//         if (this.value.length !== arrTwo.value.length) {
+//             console.log("error")
+//         }
+
+//         return this.value.reduce((acc, val, index) => acc + val * arrTwo.value[index], 0);
+//     }
+
+//     norm() {
+//         return Math.sqrt(this.value.reduce((acc, val) => acc + val ** 2, 0));
+//     }
+
+//     toString() {
+//         return `(${this.value.join(',')})`;
+//     }
+
+//     equals(arrTwo) {
+//         return this.toString() === arrTwo.toString();
+//     }
+// }
+
+
+// var a = new Vector([1, 2, 3]);
+// var b = new Vector([3, 4, 5]);
+// var c = new Vector([5, 6, 7, 8]);
+// a.add(b); // should return a new Vector([4, 6, 8])
+// a.subtract(b); // should return a new Vector([-2, -2, -2])
+// a.dot(b); // should return 1*3 + 2*4 + 3*5 = 26
+// a.norm(); // should return sqrt(1^2 + 2^2 + 3^2) = sqrt(14)
+// a.add(c); // throws an error
+
+// ======================//////*******Tasks 2*******//////=====================================
+
+// Write a myNew function that replicates all the behavior of the new operator. 
+// This function should take one function parameter (the constructor), 
+// plus an unknown number of additional parameters of any type (arguments for the constructor). 
+// When invoked, myNew should do everything new does and return the same object new would evaluate to, 
+// as specified below:
+
+//ANSW:
+
+//Note: use the code below for your task:
+// function Person(name, age) {
+//     this.name = name;
+// 	this.age = age;
+// }
+// Person.prototype.introduce = function(){
+//     return 'My name is ' + this.name + ' and I am ' + this.age;
+// };
+
+// const myNew = (Person, ...params) => {
+//     return new Person(...params);
+//   }
+
+// var john = new Person('John', 30);
+// var jack = new Person('Jack', 40);
+// var john2 = myNew(Person, 'John2', 30); // should work the same as:
+// var jack2 = myNew(Person, 'jack2', 30);
+
+// console.log(john.introduce()); //My name is John and I am 30
+// console.log(jack.introduce()); //My name is Jackand I am 40 
+// console.log(john2.introduce());
+// console.log(jack2.introduce());
+

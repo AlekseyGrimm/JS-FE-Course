@@ -303,45 +303,49 @@
 
 // class Vector {
 //     constructor(arr) {
-//         this.value = arr;
+//       this.arr = arr
 //     }
-
 //     add(arrTwo) {
-//         if (this.value.length !== arrTwo.value.length) {
-//             console.log("error")
+//       if (this.arr.length === arrTwo.arr.length) {
+//         let result = []
+//         for (let i = 0; i < this.arr.length; i++) {
+//           result.push(this.arr[i] + arrTwo.arr[i])
 //         }
-
-//         return new Vector(this.value.map((val, index) => val + arrTwo.value[index]));
+//         return new Vector(result)
+//       }
+//       return 'error'
 //     }
-
 //     subtract(arrTwo) {
-//         if (this.value.length !== arrTwo.value.length) {
-//             console.log("error")
+//       if (this.arr.length === arrTwo.arr.length) {
+//         let result = []
+//         for (let i = 0; i < this.arr.length; i++) {
+//           result.push(this.arr[i] - arrTwo.arr[i])
 //         }
-
-//         return new Vector(this.value.map((val, index) => val - arrTwo.value[index]));
+//         return new Vector(result)
+//       }
+//       return 'error'
 //     }
-
 //     dot(arrTwo) {
-//         if (this.value.length !== arrTwo.value.length) {
-//             console.log("error")
+//       if (this.arr.length === arrTwo.arr.length) {
+//         let res = 0
+//         for (let i = 0; i < this.arr.length; i++) {
+//           res += this.arr[i] * arrTwo.arr[i]
 //         }
-
-//         return this.value.reduce((acc, val, index) => acc + val * arrTwo.value[index], 0);
+//         return res
+//       }
+//       return 'error'
 //     }
-
 //     norm() {
-//         return Math.sqrt(this.value.reduce((acc, val) => acc + val ** 2, 0));
+//       let res = 0
+//       for (let i = 0; i < this.arr.length; i++) {
+//         res += this.arr[i] ** 2
+//       }
+//       return `sqrt(${res})`
 //     }
-
 //     toString() {
-//         return `(${this.value.join(',')})`;
+//       return `(${this.arr.join()})`
 //     }
-
-//     equals(arrTwo) {
-//         return this.toString() === arrTwo.toString();
-//     }
-// }
+//   }
 
 
 // var a = new Vector([1, 2, 3]);

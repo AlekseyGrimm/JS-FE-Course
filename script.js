@@ -390,3 +390,57 @@
 // console.log(john2.introduce());
 // console.log(jack2.introduce());
 
+
+//*********************************************************************************************
+// ======================              Topic 4            =====================================
+//*********************************************************************************************
+
+
+// ======================//////*******Tasks 1*******//////=====================================
+// Write your own MyPromise class with syncThen method
+//Example:
+// let promise = new MyPromise((resolve) => {
+//     console.log(1);
+//     resolve();
+// }).synchThen(()	=> {
+//     console.log(2);
+// }).then(() => {
+//     console.log(3);
+// })
+// console.log(4);
+// //1, 2, 4, 3
+
+// ANS:
+
+// let promise = new Promise(function(resolve) {
+
+//     setTimeout(() => resolve(1), 1000)
+  
+//   }).then(function(result) {
+  
+//     console.log(result) // 1
+  
+//     return new Promise((resolve) => {
+//       setTimeout(() => resolve(result * 2), 1000)
+//     })
+  
+//   }).then(function(result) {
+  
+//     console.log(result) // 2
+  
+//     return new Promise((resolve) => {
+//       setTimeout(() => resolve(result * 2), 1000)
+//     })
+  
+//   }).then(function(result) {
+  
+//     console.log(result) // 4
+
+//     return new Promise((resolve) => {
+//         setTimeout(() => resolve(result - 1), 1000)
+//       })
+  
+//   }).then(function(result) {
+
+//     console.log(result) // 3
+//   })

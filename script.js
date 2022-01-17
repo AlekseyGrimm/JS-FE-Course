@@ -511,4 +511,4 @@ function tableCreate(row, col) {
     body.appendChild(tbl)
 }
 
-tableCreate(4, 4)
+tableCreate(20, 30)

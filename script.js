@@ -415,32 +415,69 @@
 // let promise = new Promise(function(resolve) {
 
 //     setTimeout(() => resolve(1), 1000)
-  
+
 //   }).then(function(result) {
-  
+
 //     console.log(result) // 1
-  
+
 //     return new Promise((resolve) => {
 //       setTimeout(() => resolve(result * 2), 1000)
 //     })
-  
+
 //   }).then(function(result) {
-  
+
 //     console.log(result) // 2
-  
+
 //     return new Promise((resolve) => {
 //       setTimeout(() => resolve(result * 2), 1000)
 //     })
-  
+
 //   }).then(function(result) {
-  
+
 //     console.log(result) // 4
 
 //     return new Promise((resolve) => {
 //         setTimeout(() => resolve(result - 1), 1000)
 //       })
-  
+
 //   }).then(function(result) {
 
 //     console.log(result) // 3
 //   })
+// ======================//////*******Tasks 2*******//////=====================================
+
+// Write ReversePromise class so that ‘then’ functions 
+// are calling from the end to the start
+// //Example:
+// let promise = new ReversePromise((resolve) => {
+//     console.log(1);
+//     resolve();
+// })
+// .then(() => console.log(2))
+// .then(() => console.log(3))
+// .then(() => console.log(4))
+// //1, 4, 3, 2
+
+//  ANS:
+
+const ReversePromise = class {
+    constructor(callback) {
+        this.promise = new Promise(callback)
+    }
+    then(fn) {
+        this.promise.then(fn)
+        return this
+    }
+    AsyncThen(fn) {
+        fn()
+        return this
+    }
+}
+
+const promise = new ReversePromise((resolve) => {
+    console.log(1)
+    resolve()
+})
+    .AsyncThen(() => { console.log(2) })
+    .then(() => { console.log(3) })
+console.log(4)

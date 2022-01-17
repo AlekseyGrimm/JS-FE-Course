@@ -460,24 +460,55 @@
 
 //  ANS:
 
-const ReversePromise = class {
-    constructor(callback) {
-        this.promise = new Promise(callback)
+// const ReversePromise = class {
+//     constructor(callback) {
+//         this.promise = new Promise(callback)
+//     }
+//     then(fn) {
+//         this.promise.then(fn)
+//         return this
+//     }
+//     AsyncThen(fn) {
+//         fn()
+//         return this
+//     }
+// }
+
+// const promise = new ReversePromise((resolve) => {
+//     console.log(1)
+//     resolve()
+// })
+//     .AsyncThen(() => { console.log(2) })
+//     .then(() => { console.log(3) })
+// console.log(4)
+
+
+//*********************************************************************************************
+// ======================              Topic 5            =====================================
+//*********************************************************************************************
+
+// ======================//////*******Tasks 1*******//////=====================================
+// Create a table 100x100. 
+// Compare performance in adding listener to each cell click and event delegation.
+
+// ANW:
+
+function tableCreate(row, col) {
+    let body = document.body
+    let tbl = document.createElement('table')
+    tbl.style.width = '200px'
+    tbl.style.border = '1px solid black'
+
+    for (let x = 0; x < row; x++) {
+        let tr = tbl.insertRow()
+        console.log()
+        for (let y = 0; y < col; y++) {
+            let td = tr.insertCell()
+            td.appendChild(document.createTextNode(`${'cell'},${x},${y}`))
+            td.style.border = '1px solid black'
+        }
     }
-    then(fn) {
-        this.promise.then(fn)
-        return this
-    }
-    AsyncThen(fn) {
-        fn()
-        return this
-    }
+    body.appendChild(tbl)
 }
 
-const promise = new ReversePromise((resolve) => {
-    console.log(1)
-    resolve()
-})
-    .AsyncThen(() => { console.log(2) })
-    .then(() => { console.log(3) })
-console.log(4)
+tableCreate(4, 4)

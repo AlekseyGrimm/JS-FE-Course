@@ -490,9 +490,11 @@
 // ======================//////*******Tasks 1*******//////=====================================
 // Create a table 100x100. 
 // Compare performance in adding listener to each cell click and event delegation.
+// Apply drag&drop functionality to each cell
 
 // ANW:
 
+// fun create table
 function tableCreate(row, col) {
     let body = document.body
     let tbl = document.createElement('table')
@@ -511,4 +513,20 @@ function tableCreate(row, col) {
     body.appendChild(tbl)
 }
 
-tableCreate(20, 30)
+tableCreate(10, 10)
+
+// add listener in cells
+let cols = Array.from(document.getElementsByTagName('td'))
+cols.forEach(col => {
+    col.addEventListener('click', () => {
+        alert(`${col.innerHTML}`)
+    })
+})
+
+// add listener in table
+let tableEvent = document.querySelector('table');
+tableEvent.addEventListener('click', (e) => {
+  alert(`A cell was ${e.type}`);
+});
+
+// fun drag&drop

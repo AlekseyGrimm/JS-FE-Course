@@ -489,12 +489,13 @@
 
 // ======================//////*******Tasks 1*******//////=====================================
 // Create a table 100x100. 
-// Compare performance in adding listener to each cell click and event delegation.
-// Apply drag&drop functionality to each cell
+// Compare performance in adding listener to each col click and event delegation.
+// Apply drag&drop functionality to each col
 
 // ANW:
 
 // fun create table
+
 function tableCreate(row, col) {
     let body = document.body
     let tbl = document.createElement('table')
@@ -503,30 +504,57 @@ function tableCreate(row, col) {
 
     for (let x = 0; x < row; x++) {
         let tr = tbl.insertRow()
-        console.log()
         for (let y = 0; y < col; y++) {
             let td = tr.insertCell()
-            td.appendChild(document.createTextNode(`${'cell'},${x},${y}`))
+            td.id = `${x}:${y}`;
+            td.appendChild(document.createTextNode(`${x},${y}`))
             td.style.border = '1px solid black'
         }
     }
     body.appendChild(tbl)
 }
 
-tableCreate(10, 10)
+tableCreate(30, 30)
 
-// add listener in cells
+
+// add listener in cols
 let cols = Array.from(document.getElementsByTagName('td'))
 cols.forEach(col => {
     col.addEventListener('click', () => {
-        alert(`${col.innerHTML}`)
+        alert(`${col.id}`)
     })
 })
 
 // add listener in table
-let tableEvent = document.querySelector('table');
+let tableEvent = document.querySelector('table')
 tableEvent.addEventListener('click', (e) => {
-  alert(`A cell was ${e.type}`);
-});
+    alert(`Click ${e.target.id}`)
+})
 
-// fun drag&drop
+
+// drag&drop
+
+cols.forEach(col => {
+    col.setAttribute('draggable', 'true')
+
+    col.addEventListener('dragstart', (e) => {
+        e.dataTransfer.setData('data', e.target.id)
+    })
+
+    col.addEventListener('drop', (e) => {
+        e.preventDefault()
+        let data = e.dataTransfer.getData('data')        
+        e.target.append(document.getElementById(data))
+        e.target.style.backgroundColor = ''
+    })
+
+    col.addEventListener('dragover', (e) => {
+        e.preventDefault()
+        col.style.backgroundColor = '#4ce94f'
+    })
+
+    col.addEventListener('dragleave', (e) => {
+        e.preventDefault()
+        e.target.style.backgroundColor = ''
+    })
+})

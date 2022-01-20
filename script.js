@@ -497,15 +497,15 @@
 // fun create table
 
 function tableCreate(row, col) {
-    let body = document.body
-    let tbl = document.createElement('table')
+    const body = document.body
+    const tbl = document.createElement('table')
     tbl.style.width = '200px'
     tbl.style.border = '1px solid black'
 
     for (let x = 0; x < row; x++) {
-        let tr = tbl.insertRow()
+        const tr = tbl.insertRow()
         for (let y = 0; y < col; y++) {
-            let td = tr.insertCell()
+            const td = tr.insertCell()
             td.id = `${x}:${y}`;
             td.appendChild(document.createTextNode(`${x},${y}`))
             td.style.border = '1px solid black'
@@ -518,7 +518,7 @@ tableCreate(30, 30)
 
 
 // add listener in cols
-let cols = Array.from(document.getElementsByTagName('td'))
+const cols = Array.from(document.getElementsByTagName('td'))
 cols.forEach(col => {
     col.addEventListener('click', () => {
         alert(`${col.id}`)
@@ -526,7 +526,7 @@ cols.forEach(col => {
 })
 
 // add listener in table
-let tableEvent = document.querySelector('table')
+const tableEvent = document.querySelector('table')
 tableEvent.addEventListener('click', (e) => {
     alert(`Click ${e.target.id}`)
 })
@@ -543,7 +543,7 @@ cols.forEach(col => {
 
     col.addEventListener('drop', (e) => {
         e.preventDefault()
-        let data = e.dataTransfer.getData('data')        
+        const data = e.dataTransfer.getData('data')        
         e.target.append(document.getElementById(data))
         e.target.style.backgroundColor = ''
     })

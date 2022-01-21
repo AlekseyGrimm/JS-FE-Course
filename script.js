@@ -549,3 +549,27 @@
 //         e.target.style.backgroundColor = ''
 //     })
 // })
+
+
+// //*********************************************************************************************
+// // ======================              Topic 6           =====================================
+// //*********************************************************************************************
+// ======================//////*******Tasks 1*******//////=====================================
+
+// Create your custom error and trigger it.
+
+// ANW:
+
+// class MyError extends Error {
+//     constructor(message) {
+//       super(message);
+//       this.name = 'MyError';
+//     }
+//   }
+
+// try {
+//     throw new MyError('custom error');
+//   } catch (e) {
+//     console.log(e.name);     // 'MyError'
+//     console.log(e.message);  // 'custom error'
+//   }

@@ -412,41 +412,34 @@
 
 // // ANS:
 
-// // let promise = new Promise(function(resolve) {
+// class MyPromise {
+//     constructor(collback) {
+//         this.promise = new Promise(collback)
+//     }
+//     then(collback) {
+//         this.promise.then(collback)
+//         return this
+//     }
+//     synchThen(collback) {
+//         collback()
+//         return this
+//     }
+// }
 
-// //     setTimeout(() => resolve(1), 1000)
 
-// //   }).then(function(result) {
+// let promise = new MyPromise((resolve) => {
+//     console.log(1);
+//     resolve();
+// }).synchThen(() => {
+//     console.log(2);
+// }).then(() => {
+//     console.log(3);
+// })
+// console.log(4); // 1, 2, 4, 3
 
-// //     console.log(result) // 1
-
-// //     return new Promise((resolve) => {
-// //       setTimeout(() => resolve(result * 2), 1000)
-// //     })
-
-// //   }).then(function(result) {
-
-// //     console.log(result) // 2
-
-// //     return new Promise((resolve) => {
-// //       setTimeout(() => resolve(result * 2), 1000)
-// //     })
-
-// //   }).then(function(result) {
-
-// //     console.log(result) // 4
-
-// //     return new Promise((resolve) => {
-// //         setTimeout(() => resolve(result - 1), 1000)
-// //       })
-
-// //   }).then(function(result) {
-
-// //     console.log(result) // 3
-// //   })
 // // ======================//////*******Tasks 2*******//////=====================================
 
-// // Write ReversePromise class so that ‘then’ functions 
+// // Write ReversePromise class so that ‘then’ functions
 // // are calling from the end to the start
 // // //Example:
 // // let promise = new ReversePromise((resolve) => {
@@ -486,7 +479,7 @@
 // //*********************************************************************************************
 
 // // ======================//////*******Tasks 1*******//////=====================================
-// // Create a table 100x100. 
+// // Create a table 100x100.
 // // Compare performance in adding listener to each col click and event delegation.
 // // Apply drag&drop functionality to each col
 
@@ -541,7 +534,7 @@
 
 //     col.addEventListener('drop', (e) => {
 //         e.preventDefault()
-//         const data = e.dataTransfer.getData('data')        
+//         const data = e.dataTransfer.getData('data')
 //         e.target.append(document.getElementById(data))
 //         e.target.style.backgroundColor = ''
 //     })
